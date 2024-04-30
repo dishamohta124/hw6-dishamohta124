@@ -40,7 +40,7 @@ def dict_filter(checker, d):
 
 
 def checker(name, abbrev):
-    """Check if the first letter of abbreviation is 'I' and second letter of name is 'l'."""
+    """Check if the first letter of abbreviation is 'I'"""
     return abbrev[0] == "I" and name[1] == "l"
 
 
@@ -76,8 +76,8 @@ class DTree:
         """Initialize the decision tree with the provided parameters."""
         if ((variable is not None and threshold is not None and
              lessequal is not None and greater is not None and outcome is None) or
-             (variable is None and threshold is None and
-              lessequal is None and greater is None and outcome is not None)):
+            (variable is None and threshold is None and
+             lessequal is None and greater is None and outcome is not None)):
             self.variable = variable
             self.threshold = threshold
             self.lessequal = lessequal
@@ -98,7 +98,7 @@ class DTree:
         return max_index
 
     def find_outcome(self, observation):
-        """Determine the outcome of an observation based on the decision tree."""
+        """Determine the outcome of an observation based"""
         if self.outcome is not None:
             return self.outcome
         current_value = observation[self.variable]
@@ -112,7 +112,7 @@ class DTree:
         return self._no_repeats_helper(set())
 
     def _no_repeats_helper(self, seen):
-        """Helper function to check for repeat conditions using a set of seen variables."""
+        """Helper function to check for repeat conditions"""
         if self.variable in seen:
             return False
 
