@@ -10,7 +10,12 @@ def make_change(total):
             return
         for i in range(start_index, len(coins)):
             current_combination.append(coins[i])
-            find_combinations(amount - coins[i], current_combination, i, results)
+            find_combinations(
+                amount - coins[i],
+                current_combination,
+                i,
+                results
+            )
             current_combination.pop()
 
     results = []
@@ -92,7 +97,6 @@ class DTree:
             max_index = max(max_index, self.greater.tuple_atleast())
         return max_index
 
-
     def find_outcome(self, observation):
         """Determine the outcome of an observation based on the decision tree."""
         if self.outcome is not None:
@@ -103,11 +107,9 @@ class DTree:
         else:
             return self.greater.find_outcome(observation)
 
-
     def no_repeats(self):
         """Check if the tree contains repeated variable conditions."""
         return self._no_repeats_helper(set())
-
 
     def _no_repeats_helper(self, seen):
         """Helper function to check for repeat conditions using a set of seen variables."""
